@@ -1,5 +1,5 @@
-import React,{ Component } from 'react';
-import Media from './media'
+import React from 'react';
+import Media from './media';
 
 import './styles.scss';
 
