@@ -1,9 +1,9 @@
-import React,{ Component } from 'react';
+import React,{ PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-class Media extends Component {
+class Media extends PureComponent {
   render() {
     return (
       <div className="Media">
@@ -11,7 +11,7 @@ class Media extends Component {
           <img
             className="Media-image"
             src={this.props.cover}
-            alt=""
+            alt={this.props.title}
             width={260}
             height={160}
             /> 
