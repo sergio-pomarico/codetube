@@ -4,7 +4,7 @@ import Media from './media';
 import './styles.scss';
 
 function Playlist(props) {
-  const playlist = props.data.categories[0].playlist
+  const { playlist } = props
   return (
     <div className="Playlist">
       {
