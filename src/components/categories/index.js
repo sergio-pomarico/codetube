@@ -9,7 +9,11 @@ function Categories(props) {
     <div className="Categories">
       {
         categories.map((category, index) => {
-          return <Category category={category} key={`category__${index}`}/>
+          return <Category 
+            category={category} 
+            key={`category__${index}`}
+            handleOpenModal={props.handleOpenModal}
+          />
         })
       }
     </div>
