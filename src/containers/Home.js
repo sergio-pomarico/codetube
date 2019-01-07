@@ -5,6 +5,7 @@ import HomeLayout from '../layouts/HomeLayout';
 import RelatedLayout from '../layouts/RelatedLayout';
 import ModalContainer from '../containers/Modal';
 import Modal from '../components/modal';
+import ErrorContainer from '../containers/Error'
 
 import data from '../api';
 
@@ -28,20 +29,22 @@ class Home extends Component {
 
   render() {
     return (
-      <HomeLayout>
-        <RelatedLayout />
-        <Categories data={data} handleOpenModal={this.handleOpenModal}/>
-        {
-          this.state.modalVisible && 
-          <ModalContainer>
-            <Modal
-              handleClick={this.handleCloseModal}
-            >
-              <h1>Este es un portal</h1>  
-            </Modal>
-          </ModalContainer>
-        }
-      </HomeLayout>
+      <ErrorContainer>
+        <HomeLayout>
+          <RelatedLayout />
+          <Categories categories={data.categories} handleOpenModal={this.handleOpenModal}/>
+          {
+            this.state.modalVisible && 
+            <ModalContainer>
+              <Modal
+                handleClick={this.handleCloseModal}
+              >
+                <h1>Este es un portal</h1>  
+              </Modal>
+            </ModalContainer>
+          }
+        </HomeLayout>
+      </ErrorContainer>
     );
   }
 }
