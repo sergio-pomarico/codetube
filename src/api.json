@@ -141,6 +141,51 @@
         }
       ]
     }
-  ]
+  ],
+  "related": {
+    "title" : "Mi Playlist",
+    "playlist": [
+      {
+        "id": 1,
+        "title": "5 razones para escoger un portatil en vez de un computador de escritorio"
+      },
+      {
+        "id": 2,
+        "title": "la ciencia de la supestición"
+      },
+      {
+        "id": 3,
+        "title": "China envía una sonda al lado oscuro de la luna"
+      },
+      {
+        "id": 4,
+        "title": "Porque aprender ReactJS"
+      },
+      {
+        "id": 5,
+        "title": "Como aprender a programar"
+      },
+      {
+        "id": 6,
+        "title": "Musicos clasicos famosos"
+      },
+      {
+        "id": 7,
+        "title": "Como ser un desarrollador exitoso"
+      },
+      {
+        "id": 8,
+        "title": "Como montar tu estación de trabajo para desarrollar software"
+      },
+      {
+        "id": 9,
+        "title": "música para la concentración"
+      },
+      {
+        "id": 10,
+        "title": "Videojuegos que pontencian tu creatividad"
+      }
+    ]
+  }
 }
 

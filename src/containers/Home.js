@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Categories from '../components/categories';
 import HomeLayout from '../layouts/HomeLayout';
-import RelatedLayout from '../layouts/RelatedLayout';
+import Related from './Related';
 import ModalContainer from '../containers/Modal';
 import Modal from '../components/modal';
 import ErrorContainer from '../containers/Error'
@@ -31,7 +31,7 @@ class Home extends Component {
     return (
       <ErrorContainer>
         <HomeLayout>
-          <RelatedLayout />
+          <Related related={data.related}/>
           <Categories categories={data.categories} handleOpenModal={this.handleOpenModal}/>
           {
             this.state.modalVisible && 

@@ -1,0 +1,21 @@
+.List {
+  color: white;
+  margin-top: 40px;
+}
+
+.List_title {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.List_item {
+  margin-bottom: 10px;
+  display: flex;
+  strong, span {
+    display: inline-block;
+  }
+  strong {
+    font-weight: bold;
+    margin-right: 20px;
+  } 
+}
