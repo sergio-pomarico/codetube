@@ -6,6 +6,7 @@ import Related from './Related';
 import ModalContainer from '../containers/Modal';
 import Modal from '../components/modal';
 import ErrorContainer from '../containers/Error'
+import Player from './Player';
 
 import data from '../api';
 
@@ -31,6 +32,7 @@ class Home extends Component {
     return (
       <ErrorContainer>
         <HomeLayout>
+          <Player/>
           <Related related={data.related}/>
           <Categories categories={data.categories} handleOpenModal={this.handleOpenModal}/>
           {
