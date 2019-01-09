@@ -32,7 +32,7 @@ class Home extends Component {
     return (
       <ErrorContainer>
         <HomeLayout>
-          <Player/>
+          <Player autoplay/>
           <Related related={data.related}/>
           <Categories categories={data.categories} handleOpenModal={this.handleOpenModal}/>
           {
