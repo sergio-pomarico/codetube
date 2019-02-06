@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import './styles.scss';
 
-
 class Video extends Component {
   
   componentWillReceiveProps(nextProps) {
@@ -24,7 +23,7 @@ class Video extends Component {
   }
 
   render () {
-    const { handleLoadedMetadata, handleTimeUpdate } = this.props;
+    const { handleLoadedMetadata, handleTimeUpdate, handleSeeking, handleSeeked } = this.props;
     return (
       <div className="Video">
         <video 
@@ -33,6 +32,8 @@ class Video extends Component {
           ref={this.setRef}
           onLoadedMetadata={handleLoadedMetadata}
           onTimeUpdate={handleTimeUpdate}
+          onSeeking={handleSeeking} //On init loading
+          onSeeked={handleSeeked} //On finish load
         />
       </div>
     )

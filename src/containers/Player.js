@@ -5,7 +5,8 @@ import Title from '../components/video/title';
 import Play from '../components/video/play';
 import Timer from '../components/video/timer';
 import Controls from '../components/video/controls';
-import Progress from '../components/video/progress'
+import Progress from '../components/video/progress';
+import Spinner from '../components/video/spinner';
 
 import { formatedTime } from '../utils'
 
@@ -13,7 +14,8 @@ class Player extends Component {
   state = {
     pause: false,
     duration: 0,
-    currentTime: 0
+    currentTime: 0,
+    loading: false
   }
 
   componentDidMount() {
@@ -47,6 +49,18 @@ class Player extends Component {
     this.video.currentTime = event.target.value;
   }
 
+  handleSeeking = () => {
+    this.setState({
+      loading: true
+    })
+  }
+
+  handleSeeked = () => {
+    this.setState({
+      loading: false
+    })
+  }
+
   render() {
     return (
       <VideoPlayerLayout>
@@ -57,7 +71,10 @@ class Player extends Component {
           pause={this.state.pause}
           handleLoadedMetadata={this.handleLoadedMetadata}
           handleTimeUpdate={this.handleTimeUpdate}
+          handleSeeking={this.handleSeeking}
+          handleSeeked={this.handleSeeked}
         />
+        <Spinner active={this.state.loading}/>
         <Controls>
           <Play handleClick={this.TogglePlay} pause={this.state.pause}/>
           <Timer 
