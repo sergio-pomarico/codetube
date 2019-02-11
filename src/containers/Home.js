@@ -13,12 +13,14 @@ import data from '../api';
 class Home extends Component {
 
   state = {
-    modalVisible: false
+    modalVisible: false,
+    media: undefined
   }
 
-  handleOpenModal = (event) => {
+  handleOpenModal = (media) => {
     this.setState({
-      modalVisible: true
+      modalVisible: true,
+      media
     })
   }
 
@@ -32,7 +34,6 @@ class Home extends Component {
     return (
       <ErrorContainer>
         <HomeLayout>
-          <Player autoplay/>
           <Related related={data.related}/>
           <Categories categories={data.categories} handleOpenModal={this.handleOpenModal}/>
           {
@@ -41,7 +42,7 @@ class Home extends Component {
               <Modal
                 handleClick={this.handleCloseModal}
               >
-                <h1>Este es un portal</h1>  
+                <Player autoplay src={this.state.media.src} title={this.state.media.title}/>
               </Modal>
             </ModalContainer>
           }

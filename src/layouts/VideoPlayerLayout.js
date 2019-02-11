@@ -2,7 +2,9 @@ import React from 'react';
 
 const VideoPlayerLayout = (props) => {
   return (
-    <div style={VideoPlayer}>
+    <div style={VideoPlayer}
+      ref={props.setRef}  
+    >
       {props.children}
     </div>
   );

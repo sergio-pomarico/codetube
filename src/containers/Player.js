@@ -7,6 +7,8 @@ import Timer from '../components/video/timer';
 import Controls from '../components/video/controls';
 import Progress from '../components/video/progress';
 import Spinner from '../components/video/spinner';
+import Volume from '../components/video/volume';
+import FullScreen from '../components/video/fullscreen'
 
 import { formatedTime } from '../utils'
 
@@ -15,7 +17,8 @@ class Player extends Component {
     pause: false,
     duration: 0,
     currentTime: 0,
-    loading: false
+    loading: false,
+    maxVolume: true
   }
 
   componentDidMount() {
@@ -61,12 +64,28 @@ class Player extends Component {
     })
   }
 
+  handleVolumeChange = (event) => {
+    this.video.volume = event.target.value;
+  }
+
+  handleFullScreenClick = (event) => {
+    if(!document.webkitIsFullScreen) {
+      this.player.webkitRequestFullscreen()
+    }else{
+      document.webkitExitFullscreen();
+    }
+  }
+
+  setRef = element => {
+    this.player = element
+  }
+
   render() {
     return (
-      <VideoPlayerLayout>
-        <Title title="Titulo del video"/>
+      <VideoPlayerLayout  setRef={this.setRef}>
+        <Title title={this.props.title}/>
         <Video 
-          src={"http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"}
+          src={this.props.src}
           autoplay={this.props.autoplay}
           pause={this.state.pause}
           handleLoadedMetadata={this.handleLoadedMetadata}
@@ -86,6 +105,8 @@ class Player extends Component {
             value={this.state.currentTime}
             handlerProgressChange={this.handlerProgressChange}
           />
+          <Volume handleVolumeChange={this.handleVolumeChange}/>
+          <FullScreen handleFullScreenClick={this.handleFullScreenClick}/>
         </Controls>
       </VideoPlayerLayout>
     );
