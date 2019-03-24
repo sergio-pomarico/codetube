@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Categories from '../components/categories';
 import HomeLayout from '../layouts/HomeLayout';
@@ -7,8 +8,6 @@ import ModalContainer from '../containers/Modal';
 import Modal from '../components/modal';
 import ErrorContainer from '../containers/Error'
 import Player from './Player';
-
-import data from '../api';
 
 class Home extends Component {
 
@@ -31,11 +30,12 @@ class Home extends Component {
   }
 
   render() {
+    const { categories, related } = this.props
     return (
       <ErrorContainer>
         <HomeLayout>
-          <Related related={data.related}/>
-          <Categories categories={data.categories} handleOpenModal={this.handleOpenModal}/>
+          <Related related={related}/>
+          <Categories categories={categories} handleOpenModal={this.handleOpenModal}/>
           {
             this.state.modalVisible && 
             <ModalContainer>
@@ -52,4 +52,12 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state, props) => {
+  const { data } = state
+  return {
+    categories: data.categories,
+    related: data.related
+  }
+}
+
+export default connect(mapStateToProps)(Home);
