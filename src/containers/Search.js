@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import { connect } from 'react-redux';
 
 import SearchImput from '../components/search';
 
@@ -6,7 +7,10 @@ class Search extends Component {
   
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.input.value)
+    this.props.dispatch({ 
+      type: 'SEARCH_VIDEO', 
+      payload: { query: this.input.value }
+    });
   }
 
   setInputRef = (element) => {
@@ -24,4 +28,4 @@ class Search extends Component {
   } 
 }
 
-export default Search;
+export default connect()(Search);

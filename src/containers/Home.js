@@ -30,12 +30,12 @@ class Home extends Component {
   }
 
   render() {
-    const { categories, related } = this.props
+    const { categories, related, search } = this.props
     return (
       <ErrorContainer>
         <HomeLayout>
           <Related related={related}/>
-          <Categories categories={categories} handleOpenModal={this.handleOpenModal}/>
+          <Categories categories={categories} handleOpenModal={this.handleOpenModal} search={search}/>
           {
             this.state.modalVisible && 
             <ModalContainer>
@@ -53,10 +53,11 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-  const { data } = state
+  const { data, search } = state
   return {
     categories: data.categories,
-    related: data.related
+    related: data.related,
+    search
   }
 }
 
