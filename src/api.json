@@ -143,6 +143,7 @@
     }
   ],
   "related": {
+    "id": 1,
     "title" : "Mi Playlist",
     "playlist": [
       {

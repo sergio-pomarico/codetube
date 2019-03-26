@@ -6,12 +6,13 @@ import { Provider } from 'react-redux'
 import './index.scss';
 import Home from './containers/Home';
 import * as serviceWorker from './serviceWorker';
-import data from './api';
+import data from './schemas'
 import reducer from './reducers'
 
 const initialState = { 
   data: {
-    ...data,
+    entities: data.entities,
+    categories: data.result.categories
   },
   search: []
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Media from './media';
+import Media from '../../containers/Media';
 
 import './styles.scss';
 
@@ -8,8 +8,8 @@ function Playlist(props) {
   return (
     <div className="Playlist">
       {
-        playlist.map((item, index) => {
-          return <Media {...item} key={`media__${index}`}  openModal={props.handleOpenModal}/>
+        playlist.map((mediaId) => {
+          return <Media key={`media__${mediaId}`} id={mediaId} openModal={props.handleOpenModal}/>
         })
       }
     </div>
